@@ -16,9 +16,9 @@ app.use((req, res, next) => {
    next();
 });
 
-app.use((req, res, next) => {
-    res.render('maint.hbs');
-});
+// app.use((req, res, next) => {
+//     res.render('maint.hbs');
+// });
 
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
@@ -33,6 +33,14 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     res.render('home.hbs', {
         welcome: 'Welcome on my page! Good day!'
+    });
+});
+
+app.get('/portfolio', (req, res) => {
+    res.render('portfolio.hbs', {
+        pageTitle: 'Portfolio Page',
+        portfolioText: "Its my portfolio",
+        welcome: 'Welcome on my portfolio page!'
     });
 });
 
